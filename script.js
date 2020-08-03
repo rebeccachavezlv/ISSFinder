@@ -1,9 +1,9 @@
 const issInfo = () => {
-    fetch('//api.open-notify.org/iss-now.json')
+    fetch('http://api.open-notify.org/iss-now.json')
         .then(response => response.json())
         .then(result => document.getElementById('placeCoords').innerHTML = 'Latitude: ' + result.iss_position.latitude + '<br>Longitude: ' + result.iss_position.longitude
         )
-    fetch('//api.open-notify.org/astros.json')
+    fetch('http://api.open-notify.org/astros.json')
         .then(response => response.json())
         .then(result => {
             const peopleArray = result.people;
