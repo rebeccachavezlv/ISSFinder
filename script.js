@@ -17,11 +17,6 @@ const issInfo = () => {
                 iconSize: [35, 35],
             });
             var marker = L.marker([result.location.latitude, result.location.longitude],{icon: myIcon}).addTo(mymap);
-        }
-        )
-    fetch('https://lit-temple-91342.herokuapp.com/')
-        .then(response => response.json())
-        .then(result => {
             const peopleArray = result.astros;
             document.getElementById("placeAstros").innerHTML = "";
             for (i = 0; i < peopleArray.length; i++){
@@ -33,7 +28,7 @@ const issInfo = () => {
         }
     )
 }
-    
+
 locationButton.addEventListener("click", () => {
     issInfo();
 })
