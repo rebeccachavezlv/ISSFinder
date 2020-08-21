@@ -1,9 +1,17 @@
+html, body {
+    height: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
 .all-elements {
     background-image: linear-gradient(to bottom, rgb(103, 105, 137), rgb(0, 1, 25)), url(https://gurpreetvirdibains.com/wp-content/uploads/2019/01/slow-motion-serene-deep-space-galaxy-and-stars-background-black-and-white-4k_r77tk52fx_thumbnail-full15.png);
     background-blend-mode: multiply;
+    background-size: cover;
     color: white;
-    height: 100vh;
-    padding: 20vh;
+    padding: 5vh;
     font-family: 'Space Mono', monospace;
 }
 
@@ -22,3 +30,12 @@
     margin: 5%;
 }
 
+#mapid {
+    height: 300px;
+}
+
+.info-container {
+    padding-bottom: 20px;
+}
+
+  
