@@ -17,41 +17,48 @@ let counter = 0;
 
 let marker = L.marker([36.1699, 115.1398],{icon: myIcon})
 
+const latLong = (result) => {
+    document.getElementById('placeCoords').innerHTML = 'Latitude: ' + result.location.latitude + '<br>Longitude: ' + result.location.longitude;
+}
+
+const astros = (result) => {
+    const peopleArray = result.astros;
+    document.getElementById("placeAstros").innerHTML = "";
+    for (i = 0; i < peopleArray.length; i++){
+        const li = document.createElement("li");
+        let textNode = document.createTextNode(peopleArray[i].name);
+        li.appendChild(textNode);
+        document.getElementById("placeAstros").appendChild(li);   
+    }
+}
+
+const initializeMarker = (result) => {
+    mymap.flyTo([result.location.latitude, result.location.longitude], 2);
+    marker.setLatLng([result.location.latitude, result.location.longitude]).update();
+    marker.addTo(mymap);
+    console.log('initializing marker')
+}
+
+const updateMarker = (result) => {
+    mymap.flyTo([result.location.latitude, result.location.longitude], 2);
+    marker.setLatLng([result.location.latitude, result.location.longitude]).update();
+    console.log('updating marker')
+}
+
 const issInfo = () => {
     fetch('https://lit-temple-91342.herokuapp.com/')
         .then(response => response.json())
         .then(result => {
-            document.getElementById('placeCoords').innerHTML = 'Latitude: ' + result.location.latitude + '<br>Longitude: ' + result.location.longitude;
+            latLong(result);
+            astros(result);
             if (counter === 0){
                 counter++;
                 initializeMarker(result)
             } else {
                 updateMarker(result);
             }
-            const peopleArray = result.astros;
-            document.getElementById("placeAstros").innerHTML = "";
-            for (i = 0; i < peopleArray.length; i++){
-                const li = document.createElement("li");
-                let textNode = document.createTextNode(peopleArray[i].name);
-                li.appendChild(textNode);
-                document.getElementById("placeAstros").appendChild(li);   
-            };
         }
     )
-}
-
-const updateMarker = (result) => {
-    mymap.setView([result.location.latitude, result.location.longitude], 2);
-    marker.setLatLng([result.location.latitude, result.location.longitude]).update();
-    console.log('updating marker')
-}
-
-
-const initializeMarker = (result) => {
-    mymap.setView([result.location.latitude, result.location.longitude], 2);
-    marker.setLatLng([result.location.latitude, result.location.longitude]).update();
-    marker.addTo(mymap);
-    console.log('initializing marker')
 }
 
 locationButton.addEventListener("click", () => {
