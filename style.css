@@ -1,41 +1,78 @@
-html, body {
-    height: 100%;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa&family=Roboto&display=swap');
 
-.full-height {
-    height: 100%;
-}
-
-.all-elements {
+html {
+    box-sizing: border-box;
+  }
+  
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-color: #ffffff;
     background-image: linear-gradient(to bottom, rgb(103, 105, 137), rgb(0, 1, 25)), url(https://gurpreetvirdibains.com/wp-content/uploads/2019/01/slow-motion-serene-deep-space-galaxy-and-stars-background-black-and-white-4k_r77tk52fx_thumbnail-full15.png);
     background-blend-mode: multiply;
     background-size: cover;
     color: white;
-    padding: 5vh;
-    font-family: 'Space Mono', monospace;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Lexend Exa', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #333;
+    outline: none;
+    padding: 0.5rem 1.8rem;
+    box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65)
+}
+  
+button:hover {
+filter: brightness(110%);
+}
+
+button:active {
+transform: translate(0, 0.3rem);
+box-shadow: 0 0.1rem rgba(255,255,255, 0.65);
 }
 
 .title {
+    font-family: 'Lexend Exa', sans-serif;
     text-transform: uppercase;
-    font-weight: 700;
-    font-style: italic;
 }
 
 .subtitle {
+    font-family: 'Lexend Exa', sans-serif;
     text-transform: uppercase;
-    font-style: italic;
 }
 
-#locationButton {
-    margin: 5%;
-}
 
 #mapid {
     height: 300px;
+    width: 80vw;
+    display: inline-block;
 }
 
 .info-container {
-    padding-bottom: 20px;
+    width: auto;
+    padding: 20px 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
 }
 
-  
+.coordinates {
+    padding: 20px 30px;
+}
+
+.astronauts {
+    padding: 20px 30px;
+}
