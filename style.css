@@ -1,4 +1,4 @@
-link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa&family=Roboto&display=swap');
 
 html {
     box-sizing: border-box;
@@ -12,7 +12,7 @@ body {
     background-blend-mode: multiply;
     background-size: cover;
     color: white;
-    font-family: 'Public Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     display: flex;
     align-items: center;
@@ -22,9 +22,9 @@ body {
 
 button {
     cursor: pointer;
+    font-family: 'Lexend Exa', sans-serif;
+    text-transform: uppercase;
     font-size: 1.2rem;
-    font-weight: 700;
-
     height: 2.5rem;
     border: none;
     border-radius: 10px;
@@ -33,18 +33,25 @@ button {
     outline: none;
     padding: 0.5rem 1.8rem;
     box-shadow: 0 0.3rem rgba(121, 121, 121, 0.65)
-  }
+}
+  
+button:hover {
+filter: brightness(110%);
+}
 
+button:active {
+transform: translate(0, 0.3rem);
+box-shadow: 0 0.1rem rgba(255,255,255, 0.65);
+}
 
 .title {
+    font-family: 'Lexend Exa', sans-serif;
     text-transform: uppercase;
-    font-weight: 500;
 }
 
 .subtitle {
+    font-family: 'Lexend Exa', sans-serif;
     text-transform: uppercase;
-    font-weight: 500;
-
 }
 
 
