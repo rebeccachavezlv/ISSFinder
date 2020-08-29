@@ -19,7 +19,6 @@ const hideLoadingSpinner = () => {
         infoContainer.hidden = false;
         infoContainer.style.visibility = "visible"; 
         loader.hidden = true;
-        infoContainer.style.visibility = "visible"; 
     }
 }
 
