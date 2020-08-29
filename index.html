@@ -16,21 +16,25 @@
     <title>ISS Finder</title>
   </head>
   <body>
-    <div class="text-center all-elements full-height">
+    <div class="text-center all-elements full-height" id="all-elements">
         <header>
           <h1 class="title">ISS Finder</h1>
           <button id="locationButton" type="button">Find Location</button>
         </header>
-        <div class="info-container">
-            <div class ="coordinates">
-              <h2 class="subtitle">Location</h2>
-                <div id="placeCoords"></div></div>
-            <div class ="astronauts">          
-              <h2 class="subtitle">Astronauts</h2>
-              <div id="placeAstros"></div></div>
-          </div>
+        <div id="info-container">
+          <div class="info-container">
+              <div class ="coordinates">
+                <h2 class="subtitle">Location</h2>
+                  <div id="placeCoords"></div></div>
+              <div class ="astronauts">          
+                <h2 class="subtitle">Astronauts</h2>
+                <div id="placeAstros"></div></div>
+            </div>
+        </div>
+        <div id="loader-container">
+          <div class="loader" id="loader"></div>
+        </div>
           <div id="mapid" class="mapcontainer"></div>
-
       </div>
 
     <!-- Leaflet JS-->

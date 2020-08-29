@@ -36,30 +36,56 @@ button {
 }
   
 button:hover {
-filter: brightness(110%);
+    filter: brightness(110%);
 }
 
 button:active {
-transform: translate(0, 0.3rem);
-box-shadow: 0 0.1rem rgba(255,255,255, 0.65);
+    transform: translate(0, 0.3rem);
+    box-shadow: 0 0.1rem rgba(255,255,255, 0.65);
 }
 
-.title {
+/* Loader */
+
+#loader-container {
+    width: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #333;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 28px 30px;
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Titles */
+
+.title, .subtitle {
     font-family: 'Lexend Exa', sans-serif;
     text-transform: uppercase;
 }
 
-.subtitle {
-    font-family: 'Lexend Exa', sans-serif;
-    text-transform: uppercase;
-}
 
+/* Map */
 
 #mapid {
     height: 300px;
     width: 80vw;
     display: inline-block;
 }
+
+/* Information */
 
 .info-container {
     width: auto;
@@ -69,10 +95,6 @@ box-shadow: 0 0.1rem rgba(255,255,255, 0.65);
     justify-content: center;
 }
 
-.coordinates {
-    padding: 20px 30px;
-}
-
-.astronauts {
+.coordinates, .astronauts {
     padding: 20px 30px;
 }

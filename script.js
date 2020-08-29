@@ -1,5 +1,31 @@
+//If higher than one, marker will update instead of initialize
+let counter = 0;
+
 //CORS Anywhere
 const proxyUrl = 'https://protected-lowlands-50643.herokuapp.com/'
+
+//Loader
+const loader = document.getElementById('loader');
+const loaderContainer = document.getElementById('loader-container')
+const infoContainer = document.getElementById('info-container')
+
+const showLoadingSpinner = () => {
+    loader.hidden = false;
+    infoContainer.hidden = true;
+}
+
+const hideLoadingSpinner = () => {
+    if (!loader.hidden) {
+        infoContainer.hidden = false;
+        infoContainer.style.visibility = "visible"; 
+        loader.hidden = true;
+        infoContainer.style.visibility = "visible"; 
+    }
+}
+
+const hideInfoContainer = () => {
+    infoContainer.style.visibility = "hidden"; 
+}    
 
 //Leaflet Map Initialize
 let mymap = L.map('mapid').setView([36.1699, 115.1398], 2);
@@ -18,20 +44,21 @@ let myIcon = L.icon({
     iconSize: [35, 35],
 });
 
-//If higher than one, marker will update instead of initialize
-let counter = 0;
 
 //Default starting point for marker. Hidden until map is initialized
 let marker = L.marker([36.1699, 115.1398],{icon: myIcon})
 
 //Finds location, places it on map, and updates text on page
 async function findLatLong () {
+    showLoadingSpinner();
     const apiUrl = 'http://api.open-notify.org/iss-now.json'
     try {
         const response = await fetch (proxyUrl + apiUrl);
         const data = await response.json();
         // Places coordinates in text
         document.getElementById('placeCoords').innerHTML = 'Latitude: ' + data.iss_position.latitude + '<br>Longitude: ' + data.iss_position.longitude;
+        //Hide Loader
+        hideLoadingSpinner()
         //Initializes marker on map
         if (counter === 0){
             counter++;
@@ -84,3 +111,7 @@ const issInfo = () => {
 locationButton.addEventListener("click", () => {
     issInfo();
 })
+
+//On Load
+hideLoadingSpinner();
+hideInfoContainer();
